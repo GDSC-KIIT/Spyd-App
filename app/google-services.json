@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "969642927878",
+    "firebase_url": "https://signal-detector-9d349.firebaseio.com",
+    "project_id": "signal-detector-9d349",
+    "storage_bucket": "signal-detector-9d349.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969642927878:android:76e13a0a16c8e53580a087",
+        "android_client_info": {
+          "package_name": "com.example.signal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969642927878-2qunj9pjnpe68uvh5l4v4o5cq8s7lg8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVst00R5_jjglYgPt3kyFCsyae-jk1SRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969642927878-2qunj9pjnpe68uvh5l4v4o5cq8s7lg8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
