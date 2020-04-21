@@ -24,6 +24,9 @@ import java.util.ArrayList;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,12 +42,19 @@ public class MainActivity extends AppCompatActivity {
     final String[] st = {""};
     private LocationManager locationManager;
     private LocationListener locationListener;
+    String latitude_db="0";
+    String longitude_db="0";
+    DatabaseReference reff;
+    Location loc;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loc = new Location();
+        reff = FirebaseDatabase.getInstance().getReference().child("Users");
 
         permissions.add(ACCESS_FINE_LOCATION);
         permissions.add(ACCESS_COARSE_LOCATION);
@@ -72,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(linkSpeed + " dBm");
         textView.setText(linkSpeed + " dBm");
 
-        Button lol = (Button) findViewById(R.id.button2);
+        Button fetch = (Button) findViewById(R.id.button2);
 
-        lol.setOnClickListener(new View.OnClickListener() {
+        fetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -86,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
                     double longitude = locationTrack.getLongitude();
                     double latitude = locationTrack.getLatitude();
+
+                    latitude_db = Double.toString(latitude);
+                    longitude_db = Double.toString(longitude);
 
                     Toast.makeText(getApplicationContext(), "Longitude:" + Double.toString(longitude) + "\nLatitude:" + Double.toString(latitude), Toast.LENGTH_SHORT).show();
                 } else {
@@ -147,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
                                 textView1.setText("Fair");
                             else {
                                 textView1.setText("Poor");
+                                loc.setLongitude_db(longitude_db);
+                                loc.setLatitude_db(latitude_db);
+                                reff.push().setValue(loc);
                             }
                             break;
                         case "3G":
@@ -158,6 +174,9 @@ public class MainActivity extends AppCompatActivity {
                                 textView1.setText("Fair");
                             else {
                                 textView1.setText("Poor");
+                                loc.setLongitude_db(longitude_db);
+                                loc.setLatitude_db(latitude_db);
+                                reff.push().setValue(loc);
                             }
                             break;
                         case "4G":
@@ -169,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
                                 textView1.setText("Fair");
                             else {
                                 textView1.setText("Poor");
+                                loc.setLongitude_db(longitude_db);
+                                loc.setLatitude_db(latitude_db);
+                                reff.push().setValue(loc);
                             }
                             break;
                     }
