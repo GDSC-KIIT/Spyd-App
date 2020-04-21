@@ -62,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         type = getNetworkClass();
-        System.out.println("---------------------------------");
         System.out.println("The type is " + type);
-        System.out.println("---------------------------------");
 
         final TextView textView = (TextView) findViewById(R.id.wifitext);
         System.out.println("Signal strength is : " + signal);
@@ -97,9 +95,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
 
@@ -133,15 +128,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     //signal = (2 * signal) - 113;
-                    System.out.println("---------------------------------");
                     System.out.println("Signal strength is : " + st[0]);
                     System.out.println("-------------->"+ strengthType);
-                    System.out.println("---------------------------------");
-                    System.out.println("---------------------------------");
-
                     System.out.println("Signal strength is : " + signalStrength);
-                    System.out.println("---------------------------------");
-                    System.out.println("---------------------------------");
 
                     String s = st[0];
                     int i = Integer.parseInt(s);
@@ -222,51 +211,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return t;
-    }
-
-    public void getStrengthClass(String checking1, String type1) {
-
-        TextView textView = (TextView) findViewById(R.id.stext);
-
-
-        int i = Integer.parseInt(checking1);
-        System.out.println("Integer value "+i);
-
-        switch (type1) {
-            case "2G":
-                if (i >= -70)
-                    textView.setText("Excellent");
-                else if(i >= -71 && i <= -85)
-                    textView.setText("Good");
-                else if(i>= -86 && i<= -100)
-                    textView.setText("Fair");
-                else {
-                    textView.setText("Poor");
-                }
-                break;
-            case "3G":
-                if (i == -70)
-                    textView.setText("Excellent");
-                else if(i >= -71 && i <= -85)
-                    textView.setText("Good");
-                else if(i>= -86 && i<= -100)
-                    textView.setText("Fair");
-                else {
-                    textView.setText("Poor");
-                }
-                break;
-            case "4G":
-                if (i == -90)
-                    textView.setText("Excellent");
-                else if(i >= -91 && i <= -105)
-                    textView.setText("Good");
-                else if(i>= -106 && i<= -110)
-                    textView.setText("Fair");
-                else {
-                    textView.setText("Poor");
-                }
-                break;
-        }
     }
 
     private ArrayList findUnAskedPermissions(ArrayList wanted) {
