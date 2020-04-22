@@ -1,5 +1,6 @@
 package com.example.signal;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,10 +18,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
+
+import static android.Manifest.permission.READ_PHONE_NUMBERS;
+import static android.Manifest.permission.READ_PHONE_STATE;
+import static android.Manifest.permission.READ_SMS;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -31,9 +39,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int PERMISSION_REQUEST_CODE = 100;
+    TelephonyManager tele;
     private ArrayList permissionsToRequest;
     private ArrayList permissionsRejected = new ArrayList();
     private ArrayList permissions = new ArrayList();
+    TextView networkProivder;
 
     private final static int ALL_PERMISSIONS_RESULT = 101;
     LocationTrack locationTrack;
@@ -46,15 +57,15 @@ public class MainActivity extends AppCompatActivity {
     String longitude_db="0";
     DatabaseReference reff;
     Location loc;
+    private String networkProviderUser = "";
 
-
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         loc = new Location();
-        reff = FirebaseDatabase.getInstance().getReference().child("Users");
 
         permissions.add(ACCESS_FINE_LOCATION);
         permissions.add(ACCESS_COARSE_LOCATION);
@@ -83,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(linkSpeed + " dBm");
 
         Button fetch = (Button) findViewById(R.id.button2);
+        networkProivder = findViewById(R.id.np);
 
         fetch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,8 +120,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
 
+        tele = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, READ_SMS) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, PERMISSION_REQUEST_CODE);
+        } else {
+            networkProviderUser = tele.getNetworkOperatorName();
+            networkProivder.setText(""+tele.getNetworkOperatorName());
+        }
+        reff = FirebaseDatabase.getInstance().getReference().child(networkProviderUser);
+    }
 
 
     public void showStrength(View v) {
@@ -295,6 +317,21 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 break;
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) !=
+                        PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                        Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
+                                PackageManager.PERMISSION_GRANTED) {
+                    return;
+                } else {
+                    networkProviderUser = tele.getNetworkOperatorName();
+                    networkProivder.setText(""+tele.getNetworkOperatorName());
+                }
         }
 
     }
