@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, PERMISSION_REQUEST_CODE);
         } else {
             networkProviderUser = tele.getNetworkOperatorName();
-            networkProvider.setText(""+tele.getNetworkOperatorName());
+            networkProvider.setText(tele.getNetworkOperatorName());
         }
         reff = FirebaseDatabase.getInstance().getReference().child(networkProviderUser);
     }
