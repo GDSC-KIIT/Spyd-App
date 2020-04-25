@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList permissionsToRequest;
     private ArrayList permissionsRejected = new ArrayList();
     private ArrayList permissions = new ArrayList();
-    TextView networkProivder;
+    TextView networkProvider;
 
     private final static int ALL_PERMISSIONS_RESULT = 101;
     LocationTrack locationTrack;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(linkSpeed + " dBm");
 
         Button fetch = (Button) findViewById(R.id.button2);
-        networkProivder = findViewById(R.id.np);
+        networkProvider = findViewById(R.id.np);
 
         fetch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, PERMISSION_REQUEST_CODE);
         } else {
             networkProviderUser = tele.getNetworkOperatorName();
-            networkProivder.setText(""+tele.getNetworkOperatorName());
+            networkProvider.setText(""+tele.getNetworkOperatorName());
         }
         reff = FirebaseDatabase.getInstance().getReference().child(networkProviderUser);
     }
@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 } else {
                     networkProviderUser = tele.getNetworkOperatorName();
-                    networkProivder.setText(""+tele.getNetworkOperatorName());
+                    networkProvider.setText(""+tele.getNetworkOperatorName());
                 }
         }
 
