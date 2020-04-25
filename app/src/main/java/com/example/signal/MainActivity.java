@@ -1,6 +1,7 @@
 package com.example.signal;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -216,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             break;
                     }
-                    textView.setText(signalStrength + "");
+                    textView.setText(""+signalStrength);
                 } else {
                     textView.setText("Not a gsm signal.");
                 }
