@@ -11,4 +11,6 @@
     <string name="get_location">GET LOCATION</string>
     <string name="netowrk_provider">Netowrk Provider:</string>
     <string name="mobile_network_strength">Mobile Network Strength</string>
+    <string name="mobile_network">Mobile Network</string>
+    <string name="strength_test">Strength Test</string>
 </resources>
