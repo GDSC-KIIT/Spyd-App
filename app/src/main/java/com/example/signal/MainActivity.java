@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (strengthType) {
                         case "2G":
-                            if (i >= 70)
+                            if (i <= 70)
                                 textView1.setText("Excellent");
                             else if(i >= 71 && i <= 85)
                                 textView1.setText("Good");
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             break;
                         case "4G":
-                            if (i >= 90)
+                            if (i <= 90)
                                 textView1.setText("Excellent");
                             else if(i >= 91 && i <= 105)
                                 textView1.setText("Good");
