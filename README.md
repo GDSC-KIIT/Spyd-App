@@ -1,5 +1,7 @@
 # Spyd
 
+<img src="Spyd/android.jpg">
+
 ## Description
 An android app that detects whether the signal of your app is weak or strong. If the signal in your area is poor or weak, the current location of the user gets stored in the database. According to the network provider, the data is saved in the Firebase Realtime-Database.
 
