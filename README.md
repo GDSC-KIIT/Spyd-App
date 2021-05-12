@@ -1,10 +1,20 @@
-# Signal-Strength
+# Spyd
 
 ## Description
 An android app that detects whether the signal of your app is weak or strong. If the signal in your area is poor or weak, the current location of the user gets stored in the database. According to the network provider, the data is saved in the Firebase Realtime-Database.
 
 ## Demo Video
-[Link](https://youtu.be/WkdWYOMOMOE)
+[CLick Here](https://youtu.be/WkdWYOMOMOE)
+
+## Screenshots
+<img src="Spyd/one.png">
+<img src="Spyd/two.png">
+<img src="Spyd/three.png">
+<img src="Spyd/four.png">
+<img src="Spyd/five.png">
+<img src="Spyd/six.png">
+<img src="Spyd/seven.png">
+<img src="Spyd/eight.png">
 
 ## Pull Request
 
