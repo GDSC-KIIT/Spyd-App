@@ -5,8 +5,9 @@
 ## Description
 An android app that detects whether the signal of your app is weak or strong. If the signal in your area is poor or weak, the current location of the user gets stored in the database. According to the network provider, the data is saved in the Firebase Realtime-Database.
 
-## Demo Video
-[CLick Here](https://youtu.be/WkdWYOMOMOE)
+## Demo
+[YouTube Video](https://youtu.be/WkdWYOMOMOE)
+[Deck](https://docs.google.com/presentation/d/1vez2_aufzeKTvoyg8bc5WRktkEDeSIQNzj8uposNFGs/edit?usp=sharing)
 
 ## Screenshots
 <img src="Spyd/one.png">
@@ -28,6 +29,9 @@ Pull Requests are welcome. Please follow these rules for the ease of understandi
 ## Developed & Maintained by
 
 [👨 Sayan Nath](https://sayannath.biz/)
+[👨 Mayukh Mallick]
+[👨 Taranpreet Chabbra]
+[👩 Priyansi Singh]
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/sayannath)
 <a href="https://www.buymeacoffee.com/sayannath235" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
