@@ -6,7 +6,7 @@
 An android app that detects whether the signal of your app is weak or strong. If the signal in your area is poor or weak, the current location of the user gets stored in the database. According to the network provider, the data is saved in the Firebase Realtime-Database.
 
 ## Demo
-[YouTube Video](https://youtu.be/WkdWYOMOMOE)
+[YouTube Video](https://youtu.be/WkdWYOMOMOE)  <br>
 [Deck](https://docs.google.com/presentation/d/1vez2_aufzeKTvoyg8bc5WRktkEDeSIQNzj8uposNFGs/edit?usp=sharing)
 
 ## Screenshots
